@@ -2,7 +2,7 @@ const express = require('express')
 //const path = require('path')
 
 //const db = require('./database')
-//const routes = require('./routes')
+const routes = require('./routes/routes')
 
 const app = express()
 
@@ -13,7 +13,7 @@ const app = express()
 app.use(express.urlencoded({extended: true}))
 
 //Definindo rotas
-//app.use('/', routes)
+app.use('/api', routes)
 
 
 
