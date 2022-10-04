@@ -29,7 +29,7 @@ async function post(req, res){
     product.save()
 
     res.send({
-        message: 'Product saved successfully',
+        message: 'success',
     })
 }
 
