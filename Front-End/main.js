@@ -9,10 +9,33 @@ function obterLista() {
             const productsHTML = data.map(product => `
             <li>
                 ${product.name} - ${product.brand} - ${product.price}
+                <a href="#" class="botao-excluir" data-id="${product._id}">[excluir]</a> 
             </li>    
             `).join('')
             
             productsList.innerHTML = productsHTML;
+            
+            const botoesExcluir = document.querySelectorAll('.botao-excluir')
+            botoesExcluir.forEach (botao => {
+                botao.onclick = function(e){
+                    e.preventDefault()
+
+                    const id = this.dataset.id
+                    
+                    fetch(`${API_URL}/${id}`, {
+                        method: 'DELETE',
+                    }).then(response => {
+                        response.json().then(data => {
+                            if (data.message === 'success') {
+                                obterLista()
+                                alert ('Produto excluido')
+                            } else {
+                                alert ('Ocorreu um erro')
+                            }
+                        })
+                    })
+                }
+            })
         })
     })
 }
