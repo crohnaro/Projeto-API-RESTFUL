@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consumindo API</title>
+
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 <body>  
     <h1>Listagem de produtos</h1>
@@ -31,6 +37,29 @@
             <button type="submit">Cadastrar</button>
         </div>
     </form>
+
+    <div id="edit" class="hidden">
+        <hr>
+        <h1>Alterar Produtos</h1>
+        <form id="formEdit">
+            <input type="hidden" name="id">
+            <div>
+                <label>Nome</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label>Marca</label>
+                <input type="text" name="brand">
+            </div>
+            <div>
+                <label>Preço</label>
+                <input type="text" name="price">
+            </div>
+            <div>
+                <button type="submit">Alterar</button>
+            </div>
+        </form>
+    </div>
 
     <script src="main.js"></script>
 </body>
